@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, TextInput} from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput, Image} from 'react-native';
 import React, { useState } from 'react'
 
 let textGlobalVariable = <Text>Im a global text variable inside the app</Text>
@@ -10,9 +10,10 @@ export default function App() {
 	
 	return (
 		<View style={styles.container}>
-			<Text>Open up App.tsx to start working on your app!</Text>
+			<Image style={styles.image} source={{ uri: 'https://www.reactnative.express/static/logo.png' }} />
 			{textGlobalVariable}
 			{textLocalVariable}
+			<Text>Write something</Text>
 
 			<TextInput
 					value={text}
@@ -44,4 +45,8 @@ const styles = StyleSheet.create({
 		alignItems: 'center',
 		justifyContent: 'center',
 	},
+	image: {
+		width: 200,
+		height: 200,
+	  },
 });
