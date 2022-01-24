@@ -1,8 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Button, TextInput, Image } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput, Image, FlatList } from 'react-native';
 import React, { useState } from 'react';
 
 let textGlobalVariable = <Text>Im a global text variable inside the app</Text>;
+const items = [
+	{ id: '0', text: 'Item0' },
+	{ id: '1', text: 'Item1' },
+	{ id: '2', text: 'Item2' },
+	{ id: '3', text: 'Item3' },
+	{ id: '4', text: 'Item4' },
+]
 
 export default function App() {
 	let textLocalVariable = <Text>Im a local text variable inside the app</Text>;
@@ -33,6 +40,13 @@ export default function App() {
 				color="#1ACDA5"
 			/>
 
+			<FlatList
+				style={styles.flatlist}
+				data={items}
+				renderItem={({ item }) => <Text style={styles.row}>{item.text}</Text>}
+				keyExtractor={(item) => item.id}
+			/>
+
 			<StatusBar style="auto" />
 		</View>
 	);
@@ -49,4 +63,12 @@ const styles = StyleSheet.create({
 		width: 200,
 		height: 200,
 	},
+	flatlist: {
+		flex: 1
+	},
+	row: {
+		padding: 15,
+		marginBottom: 5,
+		backgroundColor: 'skyblue',
+	}
 });
