@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Button, TextInput, Image, FlatList } from 'reac
 import React, { useState } from 'react';
 
 const numbers = [1, 2, 3, 4, 5];
+const numbersMapDuplicated = numbers.map((number) => number * 2);
 
 function duplicateNumbers(toDuplicate: any){
     let length = Object.keys(toDuplicate).length;
@@ -20,6 +21,7 @@ export default function App() {
 		<View style={styles.container}>
             <Text>Numeros antes de transformarlos: {numbers}</Text>
             <Text>Numeros despues de transformarlos: {duplicateNumbers(numbers)}</Text>
+			<Text>Numeros con el mapeo: {numbersMapDuplicated}</Text>
             <Button
 				onPress={() => duplicateNumbers(numbers)}
 				title="Transformar números"
